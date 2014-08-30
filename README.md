@@ -8,3 +8,4 @@ http://www.flipkart.com/mobiles/pr?p[]=facets.price_range%255B%255D%3DRs.%2B1800
 Here the reviews of mobiles are extracted from flipkart.com and a sentimental score of those reviews is computed.
 
 
+In computing the sentimental score AFINN-111 wordlist has been taken. This wordlist has been appended by more words taken from abromberg's 'sentiment_analysis' project.
