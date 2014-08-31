@@ -1,6 +1,7 @@
 require(RCurl)
 require(XML)
 require(stringr)
+require(ggplot2)
 
 sentimentScore <- function(sentences,vNegTerms, negTerms, posTerms, vPosTerms)
 {
@@ -224,3 +225,16 @@ for(i in 1:2)
 Mobile_Scores<-Mobile_Scores[-1,]
 row.names(Mobile_Scores)<-1:nrow(Mobile_Scores)
 Mobile_Scores<-cbind(mobile1,Mobile_Scores)
+
+#Plots
+#Plot1 
+#NOTE: Mobile_Scores is being updated
+
+Mobile_Scores$vNegTerms_Count<- (-1)* Mobile_Scores$vNegTerms_Count
+Mobile_Scores$negTerms_Count<- (-1)* Mobile_Scores$negTerms_Count
+
+Mobile_Scores$sums<-rowSums(Mobile_Scores[,-1])
+Mobile_Scores$pos<-Mobile_Scores$sums>0
+
+ggplot(Mobile_Scores, aes(x=mobile1, y=sums, fill=pos)) +  
+  geom_bar(stat="identity", position="identity")
