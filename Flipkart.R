@@ -234,7 +234,9 @@ Mobile_Scores$vNegTerms_Count<- (-1)* Mobile_Scores$vNegTerms_Count
 Mobile_Scores$negTerms_Count<- (-1)* Mobile_Scores$negTerms_Count
 
 Mobile_Scores$sums<-rowSums(Mobile_Scores[,-1])
-Mobile_Scores$pos<-Mobile_Scores$sums>0
+Mobile_Scores$Pos<-Mobile_Scores$sums>0
 
-ggplot(Mobile_Scores, aes(x=mobile1, y=sums, fill=pos)) +  
-  geom_bar(stat="identity", position="identity")
+ggplot(Mobile_Scores, aes(x=mobile1, y=sums, fill=Pos))
+  +  xlab("Mobiles")+ ylab("Total Sentimental Score")
+    +  ggtitle("Flipkart Mobile Sentiment Analysis")
+      +  geom_bar(stat="identity", position="identity")
