@@ -48,6 +48,7 @@ sentimentScore <- function(sentences,vNegTerms, negTerms, posTerms, vPosTerms)
           
         }, vNegTerms, negTerms, posTerms, vPosTerms))
         
+        # names of the score column being assigned
         colnames(scores)<-c("X1","vNegTerms_Count","negTerms_Count","posTerms_Count","vPosTerms_Count")
         end_score<-rbind(end_score,scores)
         
@@ -81,7 +82,7 @@ vPosTerms <- c(afinn_list$word[afinn_list$score==5 | afinn_list$score==4], "upro
 ## To remove the limit change the link given in the URL to another link.
 ## The link should belong to flipkart mobile section
 
-
+# flipkart mobile main page url
 URL <-"http://www.flipkart.com/mobiles/pr?p[]=facets.price_range%255B%255D%3DRs.%2B18001%2B-%2BRs.%2B25000&sid=tyy,4io&otracker=ch_vn_mobile_filter_Price_Rs.%2018001%20-%20Rs.%2025000#jumpTo=300|40"
 
 sub_mainpage <- getURL(URL,verbose=T, header=F) 
